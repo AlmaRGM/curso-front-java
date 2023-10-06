@@ -63,18 +63,44 @@ function closeProductDetailAside() {
 const productList = [];
 productList.push({
   name: 'Bike',
-  price: 120,
+  price: 300,
   image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+});
+productList.push({
+  name: 'Pelota',
+  price: 200,
+  image: 'https://soccerchief.com/wp-content/uploads/2020/08/photo-1567117632960-56e34a4c2456.jpg',
+});
+productList.push({
+  name: 'Computadora',
+  price: 25000,
+  image: 'https://okdiario.com/img/2018/04/18/como-insertar-una-imagen-en-html.jpg',
+  
+});
+productList.push({
+  name: 'Silla gamer',
+  price: 800,
+  image: 'https://hebmx.vtexassets.com/arquivos/ids/765095-800-800?v=638218861029270000&width=800&height=800&aspect=true',
 });
 productList.push({
   name: 'Pantalla',
-  price: 220,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  price: 50000,
+  image: 'https://blog.orange.es/wp-content/uploads/sites/4/2023/01/mac_desktop.png',
 });
 productList.push({
-  name: 'Compu',
-  price: 620,
-  image: 'https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+  name: 'Mochila',
+  price: 500,
+  image: 'https://m.media-amazon.com/images/I/41sFdZAHliL._SL500_.jpg',
+});
+productList.push({
+  name: 'Celular',
+  price: 10000,
+  image: 'https://img.freepik.com/vector-premium/celular-moderno_490053-11.jpg',
+});
+productList.push({
+  name: 'Tenis',
+  price: 2500,
+  image: 'https://media.blackandwhite-ff.com/10000/eb45f742-58ad-44bf-8012-4b0ac1ca00db_jordan-para-mujer.jpg',
 });
 
 function renderProducts(arr) {
@@ -102,7 +128,7 @@ function renderProducts(arr) {
   
     const productInfoFigure = document.createElement('figure');
     const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/bt_add_to_cart.svg');
+    productImgCart.setAttribute('src', './icons/carrito.png');
   
     productInfoFigure.appendChild(productImgCart);
   
