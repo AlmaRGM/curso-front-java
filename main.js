@@ -1,17 +1,46 @@
 const menuEmail = document.querySelector('.navbar-email');
 const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const productDetailCloseIcon = document.querySelector('.product-detail-close')
+
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const productDetailCloseIcon2 = document.querySelector('.product-detail-close2');
+const productDetailCloseIcon3 = document.querySelector('.product-detail-close3');
+const productDetailCloseIcon4 = document.querySelector('.product-detail-close4');
+
+
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+
 const productDetailContainer = document.querySelector('#productDetail');
+const productDetailContainer2 = document.querySelector('#productDetail2');
+const productDetailContainer3 = document.querySelector('#productDetail3');
+const productDetailContainer4 = document.querySelector('#productDetail4');
+
+
 const cardsContainer = document.querySelector('.cards-container');
+const imgreseña = document.querySelector('.product-card');
+const imgreseña2 = document.querySelector('.product-card2');
+const imgreseña3 = document.querySelector('.product-card3');
+const imgreseña4 = document.querySelector('.product-card4');
+
+
+imgreseña.addEventListener('click',openProductDetailAside);
+imgreseña2.addEventListener('click',openProductDetailAside2);
+imgreseña3.addEventListener('click',openProductDetailAside3);
+imgreseña4.addEventListener('click',openProductDetailAside4);
+
+
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+productDetailCloseIcon2.addEventListener('click', closeProductDetailAside2);
+productDetailCloseIcon3.addEventListener('click', closeProductDetailAside3);
+productDetailCloseIcon4.addEventListener('click', closeProductDetailAside4);
+
 
 function toggleDesktopMenu() {
   const isAsideClosed = shoppingCartContainer.classList.contains('inactive');
@@ -29,8 +58,14 @@ function toggleMobileMenu() {
   if (!isAsideClosed) {
     shoppingCartContainer.classList.add('inactive'); 
   }
+  
 
   closeProductDetailAside();
+  closeProductDetailAside2();
+  closeProductDetailAside3();
+  closeProductDetailAside4();
+
+
   
   mobileMenu.classList.toggle('inactive');
 }
@@ -43,22 +78,66 @@ function toggleCarritoAside() {
   }
 
   const isProductDetailClosed = productDetailContainer.classList.contains('inactive');
+  const isProductDetailClosed2 = productDetailContainer2.classList.contains('inactive');
+  const isProductDetailClosed3 = productDetailContainer3.classList.contains('inactive');
+  const isProductDetailClosed4 = productDetailContainer4.classList.contains('inactive');
+
+
   
   if (!isProductDetailClosed) {
     productDetailContainer.classList.add('inactive'); 
   }
   
+
+  if (!isProductDetailClosed2) {
+    productDetailContainer2.classList.add('inactive'); 
+  }
+  
+
+  if (!isProductDetailClosed3) {
+    productDetailContainer3.classList.add('inactive'); 
+  }
+  
+
+  if (!isProductDetailClosed4) {
+    productDetailContainer4.classList.add('inactive'); 
+  }
   shoppingCartContainer.classList.toggle('inactive');
+
+
 }
 
 function openProductDetailAside() {
   shoppingCartContainer.classList.add('inactive');
   productDetailContainer.classList.remove('inactive');
 }
+function openProductDetailAside2() {
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer2.classList.remove('inactive');
+}
+function openProductDetailAside3() {
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer3.classList.remove('inactive');
+}
+function openProductDetailAside4() {
+  shoppingCartContainer.classList.add('inactive');
+  productDetailContainer4.classList.remove('inactive');
+}
+
 
 function closeProductDetailAside() {
   productDetailContainer.classList.add('inactive');
 }
+function closeProductDetailAside2() {
+  productDetailContainer2.classList.add('inactive');
+}
+function closeProductDetailAside3() {
+  productDetailContainer3.classList.add('inactive');
+}
+function closeProductDetailAside4() {
+  productDetailContainer4.classList.add('inactive');
+}
+
 
 const productList = [];
 productList.push({
@@ -103,43 +182,5 @@ productList.push({
   image: 'https://media.blackandwhite-ff.com/10000/eb45f742-58ad-44bf-8012-4b0ac1ca00db_jordan-para-mujer.jpg',
 });
 
-function renderProducts(arr) {
-  for (product of arr) {
-    const productCard = document.createElement('div');
-    productCard.classList.add('product-card');
-  
-    // product= {name, price, image} -> product.image
-    const productImg = document.createElement('img');
-    productImg.setAttribute('src', product.image);
-    productImg.addEventListener('click', openProductDetailAside);
-  
-    const productInfo = document.createElement('div');
-    productInfo.classList.add('product-info');
-  
-    const productInfoDiv = document.createElement('div');
-  
-    const productPrice = document.createElement('p');
-    productPrice.innerText = '$' + product.price;
-    const productName = document.createElement('p');
-    productName.innerText = product.name;
-  
-    productInfoDiv.appendChild(productPrice);
-    productInfoDiv.appendChild(productName);
-  
-    const productInfoFigure = document.createElement('figure');
-    const productImgCart = document.createElement('img');
-    productImgCart.setAttribute('src', './icons/carrito.png');
-  
-    productInfoFigure.appendChild(productImgCart);
-  
-    productInfo.appendChild(productInfoDiv);
-    productInfo.appendChild(productInfoFigure);
-  
-    productCard.appendChild(productImg);
-    productCard.appendChild(productInfo);
-  
-    cardsContainer.appendChild(productCard);
-  }
-}
 
 renderProducts(productList);
